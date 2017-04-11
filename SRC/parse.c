@@ -89,13 +89,15 @@ void	fill_tab(t_ptr *ptr)
 			}
 			if (ptr->read[k] == '.')
 			{
-				ptr->map[i][j] == 0;
+				ptr->map[i][j] = 0;
 				k+=2;
 				j++;
 			}
 			if (ptr->read[k] == '0')
 			{
-				ptr->map[i][j] == 0;
+				ptr->map[i][j] = 0;
+				ptr->player_i = i;
+				ptr->player_j = i;
 				k+=2;
 				j++;
 			}
@@ -117,11 +119,37 @@ void	first_check(t_ptr *ptr)
 	}
 }
 
+void	border_check(t_ptr *ptr)
+{
+	char **map_char;
+	int i;
+	int j;
+
+	i = 0;
+	j = 0;
+	map_char = ft_strsplit(ptr->read, '\n');
+
+
+
+
+
+
+
+
+	while  (i < ptr->line)
+	{
+		ft_putstr(map_char[i]);
+		ft_putchar('\n');
+		i++;
+	}
+}
+
 void	parse(t_ptr *ptr)
 {
 	int i;
 	i = 0;
 	line_len(ptr);
+	border_check(ptr);
 	count_zero(ptr);
 	ptr->map = ((int **)malloc(sizeof(int *) * (ptr->line)));
 	while (i < ptr->line)
@@ -130,5 +158,4 @@ void	parse(t_ptr *ptr)
 		i++;
 	}
 	fill_tab(ptr);
-	print_int_tab(ptr);
 }
