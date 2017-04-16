@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   wolf.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarypert <yarypert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#ifndef WOLF_H
+# define WOLF_H
 # include "../MLX_FILES/mlx/mlx.h"
 # include "./Libft/libft.h"
 # include <fcntl.h>
@@ -20,6 +20,18 @@
 # define SIZE_X 800
 # define SIZE_Y 800
 # define TEST ft_putchar('a');
+
+
+typedef struct	s_gen
+{
+	int	line;
+	int column;
+	int percent;
+	char **map;
+	int rand;
+}				t_gen;
+
+
 
 typedef struct	s_ptr
 {
@@ -63,6 +75,15 @@ void	ft_usage(t_ptr *ptr);
 void	ft_help(void);
 void	ft_map(void);
 void	ft_format(void);
+
+
+
+
+void	alloc_map(t_gen *gen);
+void	fill_map_walls(t_gen *gen);
+void	print(t_gen *gen);
+void	place_player(t_gen *gen);
+void	create_map(t_gen *gen);
 
 
 #endif

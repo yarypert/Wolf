@@ -2,7 +2,7 @@
 
 void	ft_usage(t_ptr *ptr)
 {
-	ft_putstr("usage : Wolf3D <map_name>\n\
+	ft_putstr("usage : Wolf3D <map_name.wolf>\n\
  Options :\n\
   --format : displays instructions about the maps.\n\
   --map : shows exemples of maps.\n");

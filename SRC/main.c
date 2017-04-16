@@ -11,11 +11,13 @@ int main(int argc, char **argv)
 			ft_map();
 		else if (ft_strcmp((argv[1]), "--format") == 0)
 			ft_format();
-		else
+		else if (ft_strcmp(&argv[1][ft_strlen(argv[1]) - 5] , ".wolf") == 0)
 		{
 			ptr.read = read_file(argv[1]);
 			parse(&ptr);
 		}
+		else 
+			ft_usage(&ptr);
 	}
 	else
 		ft_usage(&ptr);
