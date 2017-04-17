@@ -28,7 +28,9 @@ typedef struct	s_gen
 	int column;
 	int percent;
 	char **map;
+	char *str_map;
 	int rand;
+	int link;
 }				t_gen;
 
 
@@ -82,7 +84,7 @@ void	ft_format(void);
 void	alloc_map(t_gen *gen);
 void	fill_map_walls(t_gen *gen);
 void	print(t_gen *gen);
-void	place_player(t_gen *gen);
+void	place_player(t_gen *gen, char c);
 void	create_map(t_gen *gen);
 
 
