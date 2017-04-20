@@ -6,7 +6,7 @@
 /*   By: yarypert <yarypert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/18 02:13:00 by yarypert          #+#    #+#             */
-/*   Updated: 2017/04/18 08:05:58 by yarypert         ###   ########.fr       */
+/*   Updated: 2017/04/20 18:56:41 by yarypert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_usage(void)
 {
 	ft_putendl("Usage : ./Wolf3D \033[38;5;160m<map_name.wolf>\033[0m");
 	ft_putendl("  Options :");
-	ft_putendl("    \033[38;5;40m--format\033[0m : Displays instructions\
+	ft_putendl("    \033[38;5;40m--format\033[0m : Displays instructions \
 about the maps.");
 	ft_putendl("    \033[38;5;40m--map\033[0m : Shows examples of maps.");
 	exit(0);
@@ -25,14 +25,15 @@ about the maps.");
 void	ft_format(void)
 {
 	ft_putendl("\n\033[38;5;40m*** MAP FORMAT :\033[0m\n");
+	ft_putendl("  \033[38;5;40m~\033[0m Map must be a square");
 	ft_putendl("  \033[38;5;40m~\033[0m Map must contain only 'X', '.',\
 '1', '0' or ' '.");
-	ft_putendl("  \033[38;5;40m~\033[0m 0 is the player's starting position,\
+	ft_putendl("  \033[38;5;40m~\033[0m 0 is the player's starting position, \
 place only one.");
 	ft_putendl("  \033[38;5;40m~\033[0m Walls are designed with 1.");
 	ft_putendl("  \033[38;5;40m~\033[0m Map is delimited with a X border.");
 	ft_putendl("  \033[38;5;40m~\033[0m Map has to be a rectangle.");
-	ft_putendl("  \033[38;5;40m~\033[0m Each characters has to be followed\
+	ft_putendl("  \033[38;5;40m~\033[0m Each characters has to be followed \
 by a ' ', except for the last characters who has to be followed by a '\\n'.\n");
 	exit(0);
 }

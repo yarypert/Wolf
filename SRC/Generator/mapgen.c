@@ -6,7 +6,7 @@
 /*   By: yarypert <yarypert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/18 00:57:46 by yarypert          #+#    #+#             */
-/*   Updated: 2017/04/18 08:00:05 by yarypert         ###   ########.fr       */
+/*   Updated: 2017/04/20 16:11:11 by yarypert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void	put_to_file(t_gen *gen)
 {
 	int fd;
 
+	unlink("Map.wolf");
 	fd = open("Map.wolf", O_WRONLY | O_CREAT, S_IRUSR | S_IWUSR);
 	ft_putstr_fd(gen->str_map, fd);
 	if (fd == -1)
@@ -85,4 +86,6 @@ void	create_map(t_gen *gen)
 	place_player(gen, '0');
 	tab_to_str(gen);
 	put_to_file(gen);
+	ft_putendl("\033[38;5;28m===Generator : Map Created.\033[0m");
+	print(gen);
 }

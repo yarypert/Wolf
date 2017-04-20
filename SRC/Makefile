@@ -4,9 +4,9 @@ COMPIL = -L/home/sholyu/Bureau/42/07-Wolf3D/minilibx -lm -lmlx -lXext -lX11
 
 COMPILM = gcc -lmlx -framework OpenGL -framework AppKit
 
-SRCS = main.c read.c parse.c parse2.c ft_usage.c
+SRCS = main.c read.c parse.c parse2.c ft_usage.c draw_image.c hook.c draw_map.c print_int_tab.c
 
-OBJ = main.o read.o parse.o parse2.o ft_usage.o
+OBJ = main.o read.o parse.o parse2.o ft_usage.o draw_image.o hook.o draw_map.o print_int_tab.o
 
 INCLUDES = -I ./
 
@@ -17,41 +17,106 @@ FLAGS = -Ofast -Wall -Werror -Wextra
 all: $(NAME)
 
 $(NAME) :
+	@clear
 	@echo "\033[38;5;33m===Wolf : Compilation for Mac...\033[0m"
 	@make -C Libft
-	@echo "\033[38;5;33m===Wolf : Starting Compilation...\033[0m"
-	@echo "\033[38;5;33m===Wolf : Recompiling Libft...\033[0m"
+	@clear
+	@echo "\033[38;5;33m===Wolf : Compilation for Mac...\033[0m"
+	@echo "\033[38;5;33m[======                        ]\033[0m"
 	@gcc -c $(SRCS) $(INCLUDES)
+	@clear
+	@echo "\033[38;5;33m===Wolf : Compilation for Mac...\033[0m"
+	@echo "\033[38;5;33m[============                  ]\033[0m"
 	@$(COMPILM) $(OBJ) $(LIB) $(INCLUDES) -o $(NAME)
-	@echo "\033[38;5;33m===Wolf : Moving .o files to TMP...\033[0m"
+	@clear
+	@echo "\033[38;5;33m===Wolf : Compilation for Mac...\033[0m"
+	@echo "\033[38;5;33m[==================            ]\033[0m"
 	@mkdir -p TMP
+	@clear
+	@echo "\033[38;5;33m===Wolf : Compilation for Mac...\033[0m"
+	@echo "\033[38;5;33m[========================      ]\033[0m"
 	@mv $(OBJ) TMP
+	@clear
+	@echo "\033[38;5;33m===Wolf : Compilation for Mac...\033[0m"
+	@echo "\033[38;5;33m[==============================]\033[0m"
 	@echo "\033[38;5;33m===Wolf : Done\033[0m"
+
+generate:
+	@clear
+	@echo "\033[38;5;33m===Wolf : Compilation for Mac...\033[0m"
+	@make -C Generator
+	@make -C Libft
+	@clear
+	@echo "\033[38;5;33m===Wolf : Compilation for Mac...\033[0m"
+	@echo "\033[38;5;33m[======                        ]\033[0m"
+	@gcc -c $(SRCS) $(INCLUDES)
+	@clear
+	@echo "\033[38;5;33m===Wolf : Compilation for Mac...\033[0m"
+	@echo "\033[38;5;33m[============                  ]\033[0m"
+	@$(COMPILM) $(OBJ) $(LIB) $(INCLUDES) -o $(NAME)
+	@clear
+	@echo "\033[38;5;33m===Wolf : Compilation for Mac...\033[0m"
+	@echo "\033[38;5;33m[==================            ]\033[0m"
+	@mkdir -p TMP
+	@clear
+	@echo "\033[38;5;33m===Wolf : Compilation for Mac...\033[0m"
+	@echo "\033[38;5;33m[========================      ]\033[0m"
+	@mv $(OBJ) TMP
+	@clear
+	@echo "\033[38;5;33m===Wolf : Compilation for Mac...\033[0m"
+	@echo "\033[38;5;33m[==============================]\033[0m"
+	@echo "\033[38;5;33m===Wolf : Done\033[0m"
+
 
 linux:
 	@echo "\033[38;5;33m===Wolf : Compilation for Linux...\033[0m"
 	@make -C Libft
-	@echo "\033[38;5;33m===Wolf : Starting Compilation...\033[0m"
-	@echo "\033[38;5;33m===Wolf : Recompiling Libft...\033[0m"
+	@clear
+	@echo "\033[38;5;33m===Wolf : Compilation for Linux...\033[0m"
+	@echo "\033[38;5;33m[======                        ]\033[0m"
 	@gcc -c $(SRCS) $(INCLUDES)
+	@clear
+	@echo "\033[38;5;33m===Wolf : Compilation for Linux...\033[0m"
+	@echo "\033[38;5;33m[============                  ]\033[0m"
 	@gcc $(OBJ) $(COMPIL) $(LIB) $(INCLUDES) -o $(NAME)
-	@echo "\033[38;5;33m===Wolf : Moving .o files to TMP...\033[0m"
+	@clear
+	@echo "\033[38;5;33m===Wolf : Compilation for Linux...\033[0m"
+	@echo "\033[38;5;33m[==================            ]\033[0m"
 	@mkdir -p TMP
+	@mkdir -p TMP
+	@clear
+	@echo "\033[38;5;33m===Wolf : Compilation for Linux...\033[0m"
+	@echo "\033[38;5;33m[========================      ]\033[0m"
 	@mv $(OBJ) TMP
+	@clear
+	@echo "\033[38;5;33m===Wolf : Compilation for Linux...\033[0m"
+	@echo "\033[38;5;33m[==============================]\033[0m"
 	@echo "\033[38;5;33m===Wolf : Done.\033[0m"
 
 mac:
+	@clear
 	@echo "\033[38;5;33m===Wolf : Compilation for Mac...\033[0m"
 	@make -C Libft
-	@echo "\033[38;5;33m===Wolf : Starting Compilation...\033[0m"
-	@echo "\033[38;5;33m===Wolf : Recompiling Libft...\033[0m"
+	@clear
+	@echo "\033[38;5;33m===Wolf : Compilation for Mac...\033[0m"
+	@echo "\033[38;5;33m[======                        ]\033[0m"
 	@gcc -c $(SRCS) $(INCLUDES)
-	@gcc $(FLAGS) -c $(SRCS) $(INCLUDES)
+	@clear
+	@echo "\033[38;5;33m===Wolf : Compilation for Mac...\033[0m"
+	@echo "\033[38;5;33m[============                  ]\033[0m"
 	@$(COMPILM) $(OBJ) $(LIB) $(INCLUDES) -o $(NAME)
-	@echo "\033[38;5;33m===Wolf : Moving .o files to TMP...\033[0m"
+	@clear
+	@echo "\033[38;5;33m===Wolf : Compilation for Mac...\033[0m"
+	@echo "\033[38;5;33m[==================            ]\033[0m"
 	@mkdir -p TMP
+	@clear
+	@echo "\033[38;5;33m===Wolf : Compilation for Mac...\033[0m"
+	@echo "\033[38;5;33m[========================      ]\033[0m"
 	@mv $(OBJ) TMP
-	@echo "\033[38;5;33m===Wolf : Done.\033[0m"
+	@clear
+	@echo "\033[38;5;33m===Wolf : Compilation for Mac...\033[0m"
+	@echo "\033[38;5;33m[==============================]\033[0m"
+	@echo "\033[38;5;33m===Wolf : Done\033[0m"
 
 clean:
 	@make clean -C Libft

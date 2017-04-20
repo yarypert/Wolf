@@ -6,7 +6,7 @@
 /*   By: yarypert <yarypert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/18 01:11:40 by yarypert          #+#    #+#             */
-/*   Updated: 2017/04/18 01:14:22 by yarypert         ###   ########.fr       */
+/*   Updated: 2017/04/20 18:40:24 by yarypert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	place_player(t_gen *gen, char c)
 		j = 2;
 		while (j < gen->column * 2 - 2)
 		{
-			gen->rand = rand() % 1000;
+			gen->rand = rand() % 10000;
 			if (gen->rand < 1 && gen->map[i][j] == '.' && gen->map[i][j] != '0')
 			{
 				gen->map[i][j] = c;

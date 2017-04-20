@@ -6,7 +6,7 @@
 /*   By: yarypert <yarypert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 21:16:45 by yarypert          #+#    #+#             */
-/*   Updated: 2017/04/18 08:32:39 by yarypert         ###   ########.fr       */
+/*   Updated: 2017/04/20 19:39:24 by yarypert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,20 @@
 # include <fcntl.h>
 # include <math.h>
 
-# define SIZE_X 800
-# define SIZE_Y 800
-# define TEST ft_putchar('a');
+# define SIZE_X 1000
+# define SIZE_Y 1000
 
 typedef struct	s_ptr
 {
 	int init;
 
+	int		x1;
+	int		x2;
+	int		y1;
+	int		y2;
+	int		i;
+	int		j;
+	int		k;
 	int		bpp;
 	char	*bts;
 	int		size_line;
@@ -59,7 +65,7 @@ void	parse(t_ptr *ptr);
 void	line_len(t_ptr *ptr);
 void	count_zero(t_ptr *ptr);
 void	fill_tab(t_ptr *ptr);
-void	fill_tab2(t_ptr *ptr, int i, int j, int k);
+void	fill_tab2(t_ptr *ptr);
 void	ft_usage(void);
 void	ft_map(void);
 void	ft_format(void);
@@ -67,5 +73,14 @@ void	border_check(t_ptr *ptr);
 void	border_check2(t_ptr *ptr, int i, int j);
 void	check_middle(t_ptr *ptr);
 void	first_check(t_ptr *ptr);
+int		key_hook(int keycode);
+int		exit_cross(void);
+void	print_int_tab(t_ptr *ptr);
+
+void	line(t_ptr *ptr, int color);
+void	mlx_pix_img(t_ptr *ptr, int x,int y, int color);
+void	line_init(t_init *i, t_ptr ptr);
+void	draw_square(t_ptr *ptr, int x, int y, int color);
+void	draw_map(t_ptr *ptr);
 
 #endif

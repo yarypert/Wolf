@@ -6,7 +6,7 @@
 /*   By: yarypert <yarypert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/18 08:11:06 by yarypert          #+#    #+#             */
-/*   Updated: 2017/04/18 08:53:41 by yarypert         ###   ########.fr       */
+/*   Updated: 2017/04/20 18:57:36 by yarypert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,5 @@ void	parse(t_ptr *ptr)
 	}
 	check_middle(ptr);
 	fill_tab(ptr);
+	print_int_tab(ptr);
 }

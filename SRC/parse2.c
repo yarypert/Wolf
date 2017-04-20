@@ -6,7 +6,7 @@
 /*   By: yarypert <yarypert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/18 07:55:03 by yarypert          #+#    #+#             */
-/*   Updated: 2017/04/18 08:54:27 by yarypert         ###   ########.fr       */
+/*   Updated: 2017/04/20 18:59:34 by yarypert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ void	line_len(t_ptr *ptr)
 		ptr->line++;
 		i++;
 	}
+	if (ptr->line != ptr->column)
+		ft_error("file not valid. (\"./Wolf3D --format\" for help)");
 }
 
 void	count_zero(t_ptr *ptr)
@@ -63,46 +65,38 @@ void	count_zero(t_ptr *ptr)
 
 void	fill_tab(t_ptr *ptr)
 {
-	int i;
-	int j;
-	int k;
-
-	i = 0;
-	k = 0;
-	while (i < ptr->line)
+	while (ptr->i < ptr->line)
 	{
-		j = 0;
-		fill_tab2(ptr, i, j, k);
-		i++;
+		ptr->j = 0;
+		while (ptr->j < ptr->column)
+			fill_tab2(ptr);
+		ptr->i++;
 	}
 }
 
-void	fill_tab2(t_ptr *ptr, int i, int j, int k)
+void	fill_tab2(t_ptr *ptr)
 {
-	while (j < ptr->column)
+	if (ptr->read[ptr->k] == ' ' || ptr->read[ptr->k] == '\n')
+		ptr->k++;
+	if (ptr->read[ptr->k] == 'X' || ptr->read[ptr->k] == '1')
 	{
-		if (ptr->read[k] == ' ' || ptr->read[k] == '\n')
-			k++;
-		if (ptr->read[k] == 'X' || ptr->read[k] == '1')
-		{
-			ptr->map[i][j] = 1;
-			k += 2;
-			j++;
-		}
-		if (ptr->read[k] == '.')
-		{
-			ptr->map[i][j] = 0;
-			k += 2;
-			j++;
-		}
-		if (ptr->read[k] == '0')
-		{
-			ptr->map[i][j] = 0;
-			ptr->player_i = i;
-			ptr->player_j = j;
-			k += 2;
-			j++;
-		}
+		ptr->map[ptr->i][ptr->j] = 1;
+		ptr->k += 2;
+		ptr->j++;
+	}
+	if (ptr->read[ptr->k] == '.')
+	{
+		ptr->map[ptr->i][ptr->j] = 0;
+		ptr->k += 2;
+		ptr->j++;
+	}
+	if (ptr->read[ptr->k] == '0')
+	{
+		ptr->map[ptr->i][ptr->j] = 0;
+		ptr->player_i = ptr->i;
+		ptr->player_j = ptr->j;
+		ptr->k += 2;
+		ptr->j++;
 	}
 }
 
