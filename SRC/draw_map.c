@@ -6,7 +6,7 @@
 /*   By: yarypert <yarypert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/20 15:45:30 by yarypert          #+#    #+#             */
-/*   Updated: 2017/04/20 19:58:43 by yarypert         ###   ########.fr       */
+/*   Updated: 2017/04/21 19:37:39 by yarypert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,12 @@ void	draw_map(t_ptr *ptr)
 	j = 0;
 		while (j < ptr->j)
 		{
-			if(ptr->map[i][j] == 1)
+			if (ptr->map[i][j] == 1)
 				color = 0x444444;
-			if(ptr->map[i][j] == 0)
+			if (ptr->map[i][j] == 0 && (i != ptr->player_i || j != ptr->player_j))
 				color = 0x888888;
+			if (i == ptr->player_i && j == ptr->player_j)
+				color = 0xFF0000;
 			draw_square(ptr, j * ((SIZE_X - 200) / ptr->j) + ((SIZE_X - 200)/ ptr->j) + 100, i * ((SIZE_Y - 200)/ ptr->i) + ((SIZE_Y - 200)/ ptr->i) + 100, color);
 			j++;
 		}

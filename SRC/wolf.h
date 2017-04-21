@@ -6,7 +6,7 @@
 /*   By: yarypert <yarypert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 21:16:45 by yarypert          #+#    #+#             */
-/*   Updated: 2017/04/20 19:39:24 by yarypert         ###   ########.fr       */
+/*   Updated: 2017/04/21 18:43:21 by yarypert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct	s_ptr
 {
 	int init;
 
+	int		flag_map;
 	int		x1;
 	int		x2;
 	int		y1;
@@ -73,9 +74,10 @@ void	border_check(t_ptr *ptr);
 void	border_check2(t_ptr *ptr, int i, int j);
 void	check_middle(t_ptr *ptr);
 void	first_check(t_ptr *ptr);
-int		key_hook(int keycode);
+int		key_hook(int keycode,t_ptr *ptr);
 int		exit_cross(void);
 void	print_int_tab(t_ptr *ptr);
+int		refresh(t_ptr *ptr);
 
 void	line(t_ptr *ptr, int color);
 void	mlx_pix_img(t_ptr *ptr, int x,int y, int color);

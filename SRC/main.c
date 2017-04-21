@@ -6,7 +6,7 @@
 /*   By: yarypert <yarypert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/18 07:47:06 by yarypert          #+#    #+#             */
-/*   Updated: 2017/04/20 18:50:06 by yarypert         ###   ########.fr       */
+/*   Updated: 2017/04/21 18:01:18 by yarypert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int		main(int argc, char **argv)
 	ptr.i = 0;
 	ptr.j = 0;
 	ptr.k = 0;
+	ptr.flag_map = 0;
 	ptr.str = argv[1];
 	if (argc == 2)
 	{
