@@ -6,7 +6,7 @@
 /*   By: yarypert <yarypert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/18 07:45:41 by yarypert          #+#    #+#             */
-/*   Updated: 2017/04/21 18:02:15 by yarypert         ###   ########.fr       */
+/*   Updated: 2017/04/23 19:31:41 by yarypert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ void	draw_image(t_ptr ptr)
 			&(ptr.size_line), &(ptr.endian));
 	mlx_hook(ptr.win, 17, (1L << 17), exit_cross, &ptr);
 	mlx_hook(ptr.win, 2, (1L << 0), key_hook, &ptr);
+	mlx_mouse_hook(ptr.win, mouse, &ptr);
 	mlx_put_image_to_window(ptr.mlx, ptr.win, ptr.img, 0, 0);
+	weapons_info(&ptr);
 	mlx_loop(ptr.mlx);
 }
 

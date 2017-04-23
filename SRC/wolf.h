@@ -6,7 +6,7 @@
 /*   By: yarypert <yarypert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 21:16:45 by yarypert          #+#    #+#             */
-/*   Updated: 2017/04/21 18:43:21 by yarypert         ###   ########.fr       */
+/*   Updated: 2017/04/23 19:25:37 by yarypert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,10 @@ typedef struct	s_ptr
 	int		**map;
 	int		player_i;
 	int		player_j;
+	int		ak_mag;
+	int		ak_mode;
+	int		de_mag;
+	int		weapon_id;
 }				t_ptr;
 
 typedef	struct	s_init
@@ -59,6 +63,9 @@ typedef	struct	s_init
 	int		e2;
 }				t_init;
 
+
+
+void	ptr_init(t_ptr *ptr);
 char	*ft_strappend(char *str1, char *str2);
 char	*read_file(char *file);
 void	draw_image(t_ptr ptr);
@@ -78,6 +85,11 @@ int		key_hook(int keycode,t_ptr *ptr);
 int		exit_cross(void);
 void	print_int_tab(t_ptr *ptr);
 int		refresh(t_ptr *ptr);
+int		mouse(int keycode, int x, int y, t_ptr *ptr);
+void	ak_info(t_ptr *ptr);
+void	de_info(t_ptr *ptr);
+void	weapons_info(t_ptr *ptr);
+int		wolf_mouse_manager(int x,int y, t_ptr *ptr);
 
 void	line(t_ptr *ptr, int color);
 void	mlx_pix_img(t_ptr *ptr, int x,int y, int color);
