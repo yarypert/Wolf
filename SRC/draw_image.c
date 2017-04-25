@@ -6,7 +6,7 @@
 /*   By: yarypert <yarypert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/18 07:45:41 by yarypert          #+#    #+#             */
-/*   Updated: 2017/04/23 19:31:41 by yarypert         ###   ########.fr       */
+/*   Updated: 2017/04/25 16:51:46 by yarypert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@ void	draw_image(t_ptr ptr)
 	ptr.img = mlx_new_image(ptr.mlx, SIZE_X, SIZE_Y);
 	ptr.bts = mlx_get_data_addr(ptr.img, &(ptr.bpp),
 			&(ptr.size_line), &(ptr.endian));
+	
+	
+	ptr.sprt.ak01 = mlx_xpm_file_to_image(ptr.mlx,"./Resources/Sprites/image-025.xpm" , &(ptr.sprt.ak01w) , &(ptr.sprt.ak01h));
+	res.addr = mlx_get_data_addr(res.img, &res.bpp, &res.size, &res.endian);
+	
 	mlx_hook(ptr.win, 17, (1L << 17), exit_cross, &ptr);
 	mlx_hook(ptr.win, 2, (1L << 0), key_hook, &ptr);
 	mlx_mouse_hook(ptr.win, mouse, &ptr);

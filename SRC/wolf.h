@@ -6,7 +6,7 @@
 /*   By: yarypert <yarypert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 21:16:45 by yarypert          #+#    #+#             */
-/*   Updated: 2017/04/23 19:25:37 by yarypert         ###   ########.fr       */
+/*   Updated: 2017/04/25 16:48:12 by yarypert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,14 @@
 
 # define SIZE_X 1000
 # define SIZE_Y 1000
+
+typedef	struct	s_sprt
+{
+	void	*ak01;
+	char	*ak01ad;
+	int		ak01w;
+	int		ak01h;
+}				t_sprt;
 
 typedef struct	s_ptr
 {
@@ -51,6 +59,8 @@ typedef struct	s_ptr
 	int		ak_mode;
 	int		de_mag;
 	int		weapon_id;
+	char	*name;
+	t_sprt	sprt;
 }				t_ptr;
 
 typedef	struct	s_init
@@ -62,8 +72,6 @@ typedef	struct	s_init
 	int		err;
 	int		e2;
 }				t_init;
-
-
 
 void	ptr_init(t_ptr *ptr);
 char	*ft_strappend(char *str1, char *str2);

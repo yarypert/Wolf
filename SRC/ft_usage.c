@@ -6,7 +6,7 @@
 /*   By: yarypert <yarypert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/18 02:13:00 by yarypert          #+#    #+#             */
-/*   Updated: 2017/04/20 18:56:41 by yarypert         ###   ########.fr       */
+/*   Updated: 2017/04/25 14:41:17 by yarypert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_usage(void)
 {
-	ft_putendl("Usage : ./Wolf3D \033[38;5;160m<map_name.wolf>\033[0m");
+	ft_putendl("Usage : ./Wolf3D \033[38;5;160m<map_name.wolf> <Name>\033[0m");
 	ft_putendl("  Options :");
 	ft_putendl("    \033[38;5;40m--format\033[0m : Displays instructions \
 about the maps.");
