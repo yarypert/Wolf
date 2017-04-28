@@ -6,7 +6,7 @@
 /*   By: yarypert <yarypert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/18 07:45:41 by yarypert          #+#    #+#             */
-/*   Updated: 2017/04/25 16:51:46 by yarypert         ###   ########.fr       */
+/*   Updated: 2017/04/28 07:22:16 by yarypert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,17 @@
 void	draw_image(t_ptr ptr)
 {
 	ptr.mlx = mlx_init();
-	ptr.win = mlx_new_window(ptr.mlx, SIZE_X, SIZE_Y, "Wolfenstein mes couilles");
-	ptr.img = mlx_new_image(ptr.mlx, SIZE_X, SIZE_Y);
-	ptr.bts = mlx_get_data_addr(ptr.img, &(ptr.bpp),
-			&(ptr.size_line), &(ptr.endian));
-	
-	
-	ptr.sprt.ak01 = mlx_xpm_file_to_image(ptr.mlx,"./Resources/Sprites/image-025.xpm" , &(ptr.sprt.ak01w) , &(ptr.sprt.ak01h));
-	res.addr = mlx_get_data_addr(res.img, &res.bpp, &res.size, &res.endian);
-	
+	ptr.win = mlx_new_window(ptr.mlx, SIZE_X, SIZE_Y, "Wolf3D Yarypert");
+	create_images(&ptr);
+	set_adress(&ptr);
 	mlx_hook(ptr.win, 17, (1L << 17), exit_cross, &ptr);
 	mlx_hook(ptr.win, 2, (1L << 0), key_hook, &ptr);
-	mlx_mouse_hook(ptr.win, mouse, &ptr);
-	mlx_put_image_to_window(ptr.mlx, ptr.win, ptr.img, 0, 0);
+	mlx_hook(ptr.win, 4, 0, mouse, &ptr);
+	mlx_hook(ptr.win, 5, 0, mouse2, &ptr);
+	mlx_loop_hook(ptr.mlx, burst, &ptr);
+	wolf(&ptr);
+	put_images(&ptr);
+	put_guns(&ptr);
 	weapons_info(&ptr);
 	mlx_loop(ptr.mlx);
 }

@@ -6,7 +6,7 @@
 /*   By: yarypert <yarypert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/20 15:23:48 by yarypert          #+#    #+#             */
-/*   Updated: 2017/04/23 19:31:30 by yarypert         ###   ########.fr       */
+/*   Updated: 2017/04/28 07:05:38 by yarypert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,18 @@ int		key_hook(int keycode, t_ptr *ptr)
 {
 	if (keycode == 53 || keycode == 65307)
 		exit(0);
-	if (keycode == 48)
-		ptr->flag_map ^= 1;
-	refresh(ptr);
 	if (keycode == 15)
 	{
 		if(ptr->weapon_id == 0)
 		{
 			system("afplay Resources/SFX/AK47_Reload_SFX.mp3 &");
 			usleep(3000000);
-			ptr->ak_mag = 30;
+			ptr->ak_mag = ptr->ak_max;;
 		}
 		else if (ptr->weapon_id == 1)
 		{
-			system("afplay Resources/SFX/DesertEagle_Reload_SFX.mp3");
-			usleep(1500000);
+			system("afplay Resources/SFX/DesertEagle_Reload_SFX.mp3 &");
+			usleep(3000000);
 			ptr->de_mag = 9;
 		}
 	}
@@ -54,12 +51,16 @@ int		mouse(int keycode, int x, int y, t_ptr *ptr)
 	{
 		if (keycode == 1 && ptr->ak_mag != 0)
 		{
+			tricks(1);
 			system("afplay Resources/SFX/AK47_Shot_SFX.mp3 &");
 			ptr->ak_mag--;
-			usleep(100000);
+			refreshfire(ptr);
+			mlx_do_sync(ptr->mlx);
+			refresh(ptr);
 		}
 		else if (keycode == 1 && ptr->ak_mag == 0)
 		{
+			tricks(0);
 			system("afplay Resources/SFX/AK47_Empty_SFX.mp3 &");
 			usleep(100000);
 		}
@@ -70,6 +71,8 @@ int		mouse(int keycode, int x, int y, t_ptr *ptr)
 		{
 			system("afplay Resources/SFX/DesertEagle_Shot_SFX.mp3 &");
 			ptr->de_mag--;
+			refreshfire(ptr);
+			mlx_do_sync(ptr->mlx);
 			usleep(100000);
 		}
 		else if (keycode == 1 && ptr->de_mag == 0)
@@ -78,20 +81,61 @@ int		mouse(int keycode, int x, int y, t_ptr *ptr)
 			usleep(100000);
 		}
 	}
-
 	refresh(ptr);
+	return(0);
+}
+
+int		tricks(int i)
+{
+	static int		onfire;
+
+	if (i == 1 && onfire != 1)
+		onfire = 1;
+	else if (i == 0 && onfire != 0)
+		onfire = 0;
+	return (onfire);
+};
+
+int		burst(t_ptr *ptr)
+{
+	if (tricks(-1) && ptr->ak_mag > 0)
+	{
+		system("afplay Resources/SFX/AK47_Shot_SFX.mp3 &");
+		ptr->ak_mag--;
+		refreshfire(ptr);
+	}
+	mlx_do_sync(ptr->mlx);
+	refresh(ptr);
+	mlx_do_sync(ptr->mlx);
+	return(0);
+}
+
+int		mouse2(int keycode, int x, int y, t_ptr *ptr)
+{
+	tricks(0);
 	return(0);
 }
 
 int		refresh(t_ptr *ptr)
 {
-	mlx_destroy_image(ptr->mlx, ptr->img);
-	ptr->img = mlx_new_image(ptr->mlx, SIZE_X, SIZE_Y);
-	ptr->bts = mlx_get_data_addr(ptr->img, &(ptr->bpp), &(ptr->size_line), &(ptr->endian));
-	//ft_bzero(ptr->bts, (SIZE_X * SIZE_Y) * ptr->bpp);
-	if (ptr->flag_map)
-		draw_map(ptr);
-	mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->img, 0, 0);
+	mlx_clear_window(ptr->mlx, ptr->win);
+	destroy_images(ptr);
+	create_images(ptr);
+	set_adress(ptr);
+	put_images(ptr);
+	put_guns(ptr);
+	weapons_info(ptr);
+	return(0);
+}
+
+int		refreshfire(t_ptr *ptr)
+{
+	mlx_clear_window(ptr->mlx, ptr->win);
+	destroy_images(ptr);
+	create_images(ptr);
+	set_adress(ptr);
+	put_images(ptr);
+	put_guns_fire(ptr);
 	weapons_info(ptr);
 	return(0);
 }

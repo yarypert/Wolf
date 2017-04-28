@@ -6,7 +6,7 @@
 /*   By: yarypert <yarypert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/18 07:47:06 by yarypert          #+#    #+#             */
-/*   Updated: 2017/04/25 16:51:13 by yarypert         ###   ########.fr       */
+/*   Updated: 2017/04/28 06:43:32 by yarypert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int		main(int argc, char **argv)
 			ft_format();
 		else if (ft_strcmp(&argv[1][ft_strlen(argv[1]) - 5], ".wolf") == 0)
 		{
+			if (ft_strlen(argv[2]) > 7)
+				ft_usage();
 			ptr.name = argv[2];
 			ptr.read = read_file(argv[1]);
 			ptr_init(&ptr);
@@ -41,16 +43,15 @@ int		main(int argc, char **argv)
 
 void	ptr_init(t_ptr *ptr)
 {
-	ptr->ak_mag = 30;
+	ptr->sprt.sizex = SIZE_X;
+	ptr->sprt.sizey = SIZE_Y;
+	ptr->weapon_id = 0;
+	ptr->ak_max = 30;
+	ptr->ak_mag = ptr->ak_max;
 	ptr->de_mag = 9;
 	ptr->i = 0;
 	ptr->j = 0;
 	ptr->k = 0;
 	ptr->flag_map = 0;
-}
-
-void	sprt_size_init(t_ptr *ptr)
-{
-	ptr->sprt.ak01w = 634;
-	ptr->sprt.ak01h = 606;
+	ptr->shot = 0;
 }

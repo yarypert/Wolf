@@ -6,7 +6,7 @@
 /*   By: yarypert <yarypert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 21:16:45 by yarypert          #+#    #+#             */
-/*   Updated: 2017/04/25 16:48:12 by yarypert         ###   ########.fr       */
+/*   Updated: 2017/04/28 07:22:36 by yarypert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,33 @@
 # include "./Libft/libft.h"
 # include <fcntl.h>
 # include <math.h>
+# include <time.h>
 
-# define SIZE_X 1000
-# define SIZE_Y 1000
+# define SIZE_X 700
+# define SIZE_Y 700
 
 typedef	struct	s_sprt
 {
+	int		sizex;
+	int		sizey;
+	void	*menu;
+	char	*menuad;
+	void	*akwep;
+	char	*akwepad;
+	void	*dewep;
+	char	*dewepad;
 	void	*ak01;
 	char	*ak01ad;
-	int		ak01w;
-	int		ak01h;
+	void	*ak02;
+	char	*ak02ad;
+	void	*de01;
+	char	*de01ad;
+	void	*de02;
+	char	*de02ad;
 }				t_sprt;
 
 typedef struct	s_ptr
 {
-	int init;
-
 	int		flag_map;
 	int		x1;
 	int		x2;
@@ -56,10 +67,12 @@ typedef struct	s_ptr
 	int		player_i;
 	int		player_j;
 	int		ak_mag;
+	int		ak_max;
 	int		ak_mode;
 	int		de_mag;
 	int		weapon_id;
 	char	*name;
+	int		shot;
 	t_sprt	sprt;
 }				t_ptr;
 
@@ -94,15 +107,27 @@ int		exit_cross(void);
 void	print_int_tab(t_ptr *ptr);
 int		refresh(t_ptr *ptr);
 int		mouse(int keycode, int x, int y, t_ptr *ptr);
+int		mouse2(int keycode, int x, int y, t_ptr *ptr);
 void	ak_info(t_ptr *ptr);
 void	de_info(t_ptr *ptr);
 void	weapons_info(t_ptr *ptr);
 int		wolf_mouse_manager(int x,int y, t_ptr *ptr);
 
+int		tricks(int i);
+void	create_images(t_ptr *ptr);
+void	set_adress(t_ptr *ptr);
+void	put_images(t_ptr *ptr);
+void	destroy_images(t_ptr *ptr);
+void	put_guns(t_ptr *ptr);
+void	put_guns_fire(t_ptr *ptr);
+int		refreshfire(t_ptr *ptr);
+int		burst(t_ptr *ptr);
+
+void	wolf(t_ptr *ptr);
 void	line(t_ptr *ptr, int color);
 void	mlx_pix_img(t_ptr *ptr, int x,int y, int color);
 void	line_init(t_init *i, t_ptr ptr);
 void	draw_square(t_ptr *ptr, int x, int y, int color);
-void	draw_map(t_ptr *ptr);
 
 #endif
+
