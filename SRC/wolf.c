@@ -6,7 +6,7 @@
 /*   By: yarypert <yarypert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/28 07:19:01 by yarypert          #+#    #+#             */
-/*   Updated: 2017/05/02 16:23:18 by yarypert         ###   ########.fr       */
+/*   Updated: 2017/05/02 17:17:53 by yarypert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,6 @@
 void	init_wolf(t_ptr *ptr)
 {
 	ptr->ray.i = 0;
-	ptr->ray.posX = ptr->player_i;
-	ptr->ray.posY = ptr->player_j;
-	ptr->ray.dirX = -1;
-	ptr->ray.dirY = 0;
-	ptr->ray.planeX = 0;
-	ptr->ray.planeY = 0.66;
-
 	while (ptr->ray.i < SIZE_X)
 	{
 		ptr->ray.cameraX = 2 * ptr->ray.i / (double)(SIZE_X) - 1;

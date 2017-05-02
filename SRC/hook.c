@@ -6,7 +6,7 @@
 /*   By: yarypert <yarypert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/20 15:23:48 by yarypert          #+#    #+#             */
-/*   Updated: 2017/05/02 16:22:37 by yarypert         ###   ########.fr       */
+/*   Updated: 2017/05/02 17:13:27 by yarypert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,14 @@ int		key_hook(int keycode, t_ptr *ptr)
 
 int		move(int keycode, t_ptr *ptr)
 {
-	double cst = 1;
+	double cst = 0.1;
+	double cst2 = 0.4;
 	if (keycode == 13)
 	{
-		if(ptr->map[(int)(ptr->ray.posX + ptr->ray.dirX * cst)][(int)(ptr->ray.posY)] == 1)
-			ptr->ray.posX += ptr->ray.dirX * cst;
-		if(ptr->map[(int)(ptr->ray.posX)][(int)(ptr->ray.posY + ptr->ray.dirY * cst)] == 1)
-			ptr->ray.posY += ptr->ray.dirY * cst;
+		if(ptr->map[(int)(ptr->ray.posX + ptr->ray.dirX * cst2)][(int)(ptr->ray.posY)] == 0)
+			ptr->ray.posX += ptr->ray.dirX * cst2;
+		if(ptr->map[(int)(ptr->ray.posX)][(int)(ptr->ray.posY + ptr->ray.dirY * cst2)] == 0)
+			ptr->ray.posY += ptr->ray.dirY * cst2;
 	}
 	if (keycode == 0)
 	{
@@ -61,10 +62,10 @@ int		move(int keycode, t_ptr *ptr)
 	}
 	if (keycode == 1)
 	{
-		if(ptr->map[(int)(ptr->ray.posX - ptr->ray.dirX * cst)][(int)(ptr->ray.posY)] == 1)
-			ptr->ray.posX -= ptr->ray.dirX * cst;
-		if(ptr->map[(int)(ptr->ray.posX)][(int)(ptr->ray.posY - ptr->ray.dirY * cst)] == 1)
-			ptr->ray.posY -= ptr->ray.dirY * cst;
+		if(ptr->map[(int)(ptr->ray.posX - ptr->ray.dirX * cst2)][(int)(ptr->ray.posY)] == 0)
+			ptr->ray.posX -= ptr->ray.dirX * cst2;
+		if(ptr->map[(int)(ptr->ray.posX)][(int)(ptr->ray.posY - ptr->ray.dirY * cst2)] == 0)
+			ptr->ray.posY -= ptr->ray.dirY * cst2;
 	}
 	if (keycode == 2)
 	{

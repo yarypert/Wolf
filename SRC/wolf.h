@@ -6,7 +6,7 @@
 /*   By: yarypert <yarypert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 21:16:45 by yarypert          #+#    #+#             */
-/*   Updated: 2017/05/02 16:00:31 by yarypert         ###   ########.fr       */
+/*   Updated: 2017/05/02 16:41:10 by yarypert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,6 +171,7 @@ void	put_guns_fire(t_ptr *ptr);
 int		refreshfire(t_ptr *ptr);
 int		burst(t_ptr *ptr);
 
+void	ray_init(t_ptr *ptr);
 void	wolf(t_ptr *ptr);
 void	line(t_ptr *ptr, int color);
 void	mlx_pix_img(t_ptr *ptr, int x,int y, int color);
