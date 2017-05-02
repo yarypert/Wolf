@@ -6,7 +6,7 @@
 /*   By: yarypert <yarypert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 16:25:19 by yarypert          #+#    #+#             */
-/*   Updated: 2017/05/02 06:47:34 by yarypert         ###   ########.fr       */
+/*   Updated: 2017/05/02 14:24:14 by yarypert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	put_images(t_ptr *ptr)
 {
-	mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->img, 0, 0);
+	mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->img, 0, -50);
 	mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->sprt.menu, 0, 0);
 	ak_bullet(ptr);
 }

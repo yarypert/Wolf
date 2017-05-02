@@ -6,7 +6,7 @@
 /*   By: yarypert <yarypert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 21:16:45 by yarypert          #+#    #+#             */
-/*   Updated: 2017/05/02 06:46:25 by yarypert         ###   ########.fr       */
+/*   Updated: 2017/05/02 16:00:31 by yarypert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ typedef	struct	s_ray
 	int		drawend;
 	int		color;
 	int		i;
+	double olddirX;
+	double oldplaneX;
 }				t_ray;
 
 typedef	struct	s_sprt
@@ -156,6 +158,7 @@ void	init_wolf2(t_ptr *ptr);
 void	init_wolf3(t_ptr *ptr);
 void	init_wolf4(t_ptr *ptr);
 void	init_wolf5(t_ptr *ptr);
+int		move(int keycode, t_ptr *ptr);
 
 void	ak_bullet(t_ptr *ptr);
 int		tricks(int i);

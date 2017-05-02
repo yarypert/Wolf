@@ -6,7 +6,7 @@
 /*   By: yarypert <yarypert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/20 15:23:48 by yarypert          #+#    #+#             */
-/*   Updated: 2017/05/02 09:29:57 by yarypert         ###   ########.fr       */
+/*   Updated: 2017/05/02 16:22:37 by yarypert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,47 @@ int		key_hook(int keycode, t_ptr *ptr)
 		ptr->ak_mode ^= 1;
 	if (keycode == 126 || keycode == 125)
 		ptr->weapon_id ^= 1;
+	move(keycode, ptr);
 	refresh(ptr);
 	return (0);
+}
+
+int		move(int keycode, t_ptr *ptr)
+{
+	double cst = 1;
+	if (keycode == 13)
+	{
+		if(ptr->map[(int)(ptr->ray.posX + ptr->ray.dirX * cst)][(int)(ptr->ray.posY)] == 1)
+			ptr->ray.posX += ptr->ray.dirX * cst;
+		if(ptr->map[(int)(ptr->ray.posX)][(int)(ptr->ray.posY + ptr->ray.dirY * cst)] == 1)
+			ptr->ray.posY += ptr->ray.dirY * cst;
+	}
+	if (keycode == 0)
+	{
+		ptr->ray.olddirX = ptr->ray.dirX;
+		ptr->ray.dirX = ptr->ray.dirX * cos(cst) - ptr->ray.dirY * sin(cst);
+		ptr->ray.dirY = ptr->ray.olddirX * sin(cst) + ptr->ray.dirY * cos(cst);
+		ptr->ray.oldplaneX = ptr->ray.planeX;
+		ptr->ray.planeX = ptr->ray.planeX * cos(cst) - ptr->ray.planeY * sin(cst);
+		ptr->ray.planeY = ptr->ray.oldplaneX * sin(cst) + ptr->ray.planeY * cos(cst);
+	}
+	if (keycode == 1)
+	{
+		if(ptr->map[(int)(ptr->ray.posX - ptr->ray.dirX * cst)][(int)(ptr->ray.posY)] == 1)
+			ptr->ray.posX -= ptr->ray.dirX * cst;
+		if(ptr->map[(int)(ptr->ray.posX)][(int)(ptr->ray.posY - ptr->ray.dirY * cst)] == 1)
+			ptr->ray.posY -= ptr->ray.dirY * cst;
+	}
+	if (keycode == 2)
+	{
+		ptr->ray.olddirX = ptr->ray.dirX;
+		ptr->ray.dirX = ptr->ray.dirX * cos(-cst) - ptr->ray.dirY * sin(-cst);
+		ptr->ray.dirY = ptr->ray.olddirX * sin(-cst) + ptr->ray.dirY * cos(-cst);
+		ptr->ray.oldplaneX = ptr->ray.planeX;
+		ptr->ray.planeX = ptr->ray.planeX * cos(-cst) - ptr->ray.planeY * sin(-cst);
+		ptr->ray.planeY = ptr->ray.oldplaneX * sin(-cst) + ptr->ray.planeY * cos(-cst);
+	}
+return(0);
 }
 
 int		exit_cross(void)
@@ -74,6 +113,7 @@ int		mouse(int keycode, int x, int y, t_ptr *ptr)
 			refreshfire(ptr);
 			mlx_do_sync(ptr->mlx);
 			usleep(100000);
+			refresh(ptr);
 		}
 		else if (keycode == 1 && ptr->de_mag == 0)
 		{
@@ -125,7 +165,6 @@ int		refresh(t_ptr *ptr)
 	put_images(ptr);
 	put_guns(ptr);
 	weapons_info(ptr);
-	ft_putchar('a');
 	return(0);
 }
 
@@ -139,6 +178,5 @@ int		refreshfire(t_ptr *ptr)
 	put_images(ptr);
 	put_guns_fire(ptr);
 	weapons_info(ptr);
-	ft_putchar('b');
 	return(0);
 }
