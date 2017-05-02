@@ -6,7 +6,7 @@
 /*   By: yarypert <yarypert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 16:25:19 by yarypert          #+#    #+#             */
-/*   Updated: 2017/04/28 00:49:13 by yarypert         ###   ########.fr       */
+/*   Updated: 2017/05/01 21:40:40 by yarypert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	create_images(t_ptr *ptr)
 	ptr->sprt.ak02 = mlx_xpm_file_to_image(ptr->mlx, "./Resources/Sprites/XPM/ak02.xpm", &ptr->sprt.sizex, &ptr->sprt.sizey);
 
 
+	ptr->sprt.akbul = mlx_xpm_file_to_image(ptr->mlx, "./Resources/Sprites/XPM/AK47_Bullet.xpm", &ptr->sprt.sizex, &ptr->sprt.sizey);
+	ptr->sprt.debul = mlx_xpm_file_to_image(ptr->mlx, "./Resources/Sprites/XPM/DE_Bullet.xpm", &ptr->sprt.sizex, &ptr->sprt.sizey);
 
 
 }

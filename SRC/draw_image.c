@@ -6,7 +6,7 @@
 /*   By: yarypert <yarypert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/18 07:45:41 by yarypert          #+#    #+#             */
-/*   Updated: 2017/04/28 07:22:16 by yarypert         ###   ########.fr       */
+/*   Updated: 2017/05/02 06:32:23 by yarypert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	draw_image(t_ptr ptr)
 	mlx_hook(ptr.win, 4, 0, mouse, &ptr);
 	mlx_hook(ptr.win, 5, 0, mouse2, &ptr);
 	mlx_loop_hook(ptr.mlx, burst, &ptr);
-	wolf(&ptr);
+	init_wolf(&ptr);
 	put_images(&ptr);
 	put_guns(&ptr);
 	weapons_info(&ptr);

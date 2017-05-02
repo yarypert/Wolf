@@ -6,7 +6,7 @@
 /*   By: yarypert <yarypert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 21:16:45 by yarypert          #+#    #+#             */
-/*   Updated: 2017/04/28 07:22:36 by yarypert         ###   ########.fr       */
+/*   Updated: 2017/05/02 06:46:25 by yarypert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,43 @@
 
 # define SIZE_X 700
 # define SIZE_Y 700
+
+# define RED 0x00FF0000
+# define GREEN 0x0000FF00
+# define BLUE 0x000000FF
+# define WHITE 0x00FFFFFF
+# define YELLOW 0x0000FFFF
+
+typedef	struct	s_ray
+{
+	double	posX;
+	double	posY;
+	double	dirX;
+	double	dirY;
+	double	planeX;
+	double	planeY;
+	double	cameraX;
+	double	rayposX;
+	double	rayposY;
+	double	raydirX;
+	double	raydirY;
+	int		mapX;
+	int		mapY;
+	double	sidedistX;
+	double	sidedistY;
+	double	deltadistX;
+	double	deltadistY;
+	double	perpwalldist;
+	int		stepX;
+	int		stepY;
+	int		hit;
+	int		side;
+	int		lineheight;
+	int		drawstart;
+	int		drawend;
+	int		color;
+	int		i;
+}				t_ray;
 
 typedef	struct	s_sprt
 {
@@ -39,6 +76,10 @@ typedef	struct	s_sprt
 	char	*de01ad;
 	void	*de02;
 	char	*de02ad;
+	void	*akbul;
+	char	*akbulad;
+	void	*debul;
+	char	*debulad;
 }				t_sprt;
 
 typedef struct	s_ptr
@@ -74,6 +115,7 @@ typedef struct	s_ptr
 	char	*name;
 	int		shot;
 	t_sprt	sprt;
+	t_ray	ray;
 }				t_ptr;
 
 typedef	struct	s_init
@@ -108,11 +150,14 @@ void	print_int_tab(t_ptr *ptr);
 int		refresh(t_ptr *ptr);
 int		mouse(int keycode, int x, int y, t_ptr *ptr);
 int		mouse2(int keycode, int x, int y, t_ptr *ptr);
-void	ak_info(t_ptr *ptr);
-void	de_info(t_ptr *ptr);
 void	weapons_info(t_ptr *ptr);
-int		wolf_mouse_manager(int x,int y, t_ptr *ptr);
+void	init_wolf(t_ptr *ptr);
+void	init_wolf2(t_ptr *ptr);
+void	init_wolf3(t_ptr *ptr);
+void	init_wolf4(t_ptr *ptr);
+void	init_wolf5(t_ptr *ptr);
 
+void	ak_bullet(t_ptr *ptr);
 int		tricks(int i);
 void	create_images(t_ptr *ptr);
 void	set_adress(t_ptr *ptr);

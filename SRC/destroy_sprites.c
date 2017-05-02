@@ -6,7 +6,7 @@
 /*   By: yarypert <yarypert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 16:25:19 by yarypert          #+#    #+#             */
-/*   Updated: 2017/04/27 23:23:13 by yarypert         ###   ########.fr       */
+/*   Updated: 2017/05/01 21:42:45 by yarypert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,7 @@ void	destroy_images(t_ptr *ptr)
 	mlx_destroy_image(ptr->mlx, ptr->sprt.de02);
 	mlx_destroy_image(ptr->mlx, ptr->sprt.ak01);
 	mlx_destroy_image(ptr->mlx, ptr->sprt.ak02);
+	mlx_destroy_image(ptr->mlx, ptr->sprt.akbul);
+	mlx_destroy_image(ptr->mlx, ptr->sprt.debul);
 
 }

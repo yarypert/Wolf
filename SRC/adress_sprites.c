@@ -6,7 +6,7 @@
 /*   By: yarypert <yarypert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 16:25:19 by yarypert          #+#    #+#             */
-/*   Updated: 2017/04/27 23:22:22 by yarypert         ###   ########.fr       */
+/*   Updated: 2017/05/01 21:41:25 by yarypert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	set_adress(t_ptr *ptr)
 
 
 
+	ptr->sprt.akbulad = mlx_get_data_addr(ptr->sprt.akbul, &ptr->bpp, &ptr->size_line, &ptr->endian);
+	ptr->sprt.debulad = mlx_get_data_addr(ptr->sprt.debul, &ptr->bpp, &ptr->size_line, &ptr->endian);
 
 
 

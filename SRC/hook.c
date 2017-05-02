@@ -6,7 +6,7 @@
 /*   By: yarypert <yarypert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/20 15:23:48 by yarypert          #+#    #+#             */
-/*   Updated: 2017/04/28 07:05:38 by yarypert         ###   ########.fr       */
+/*   Updated: 2017/05/02 06:47:13 by yarypert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,7 @@ int		refresh(t_ptr *ptr)
 	destroy_images(ptr);
 	create_images(ptr);
 	set_adress(ptr);
+	init_wolf(ptr);
 	put_images(ptr);
 	put_guns(ptr);
 	weapons_info(ptr);
@@ -134,6 +135,7 @@ int		refreshfire(t_ptr *ptr)
 	destroy_images(ptr);
 	create_images(ptr);
 	set_adress(ptr);
+	init_wolf(ptr);
 	put_images(ptr);
 	put_guns_fire(ptr);
 	weapons_info(ptr);
