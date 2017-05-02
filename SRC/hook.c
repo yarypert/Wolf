@@ -6,7 +6,7 @@
 /*   By: yarypert <yarypert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/20 15:23:48 by yarypert          #+#    #+#             */
-/*   Updated: 2017/05/02 06:47:13 by yarypert         ###   ########.fr       */
+/*   Updated: 2017/05/02 09:29:57 by yarypert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ int		mouse(int keycode, int x, int y, t_ptr *ptr)
 			usleep(100000);
 		}
 	}
-	refresh(ptr);
 	return(0);
 }
 
@@ -103,10 +102,10 @@ int		burst(t_ptr *ptr)
 		system("afplay Resources/SFX/AK47_Shot_SFX.mp3 &");
 		ptr->ak_mag--;
 		refreshfire(ptr);
+		mlx_do_sync(ptr->mlx);
+		refresh(ptr);
+		mlx_do_sync(ptr->mlx);
 	}
-	mlx_do_sync(ptr->mlx);
-	refresh(ptr);
-	mlx_do_sync(ptr->mlx);
 	return(0);
 }
 
@@ -126,6 +125,7 @@ int		refresh(t_ptr *ptr)
 	put_images(ptr);
 	put_guns(ptr);
 	weapons_info(ptr);
+	ft_putchar('a');
 	return(0);
 }
 
@@ -139,5 +139,6 @@ int		refreshfire(t_ptr *ptr)
 	put_images(ptr);
 	put_guns_fire(ptr);
 	weapons_info(ptr);
+	ft_putchar('b');
 	return(0);
 }

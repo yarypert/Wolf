@@ -6,7 +6,7 @@
 /*   By: yarypert <yarypert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/18 07:45:41 by yarypert          #+#    #+#             */
-/*   Updated: 2017/05/02 06:32:23 by yarypert         ###   ########.fr       */
+/*   Updated: 2017/05/02 09:29:44 by yarypert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ void    line(t_ptr *ptr, int color)
 		}
 	}
 }
-
 
 void	mlx_pix_img(t_ptr *ptr, int x, int y, int color)
 {
