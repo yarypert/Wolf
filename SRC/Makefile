@@ -6,7 +6,11 @@ COMPILM = gcc -lmlx -framework OpenGL -framework AppKit
 
 SRCS = main.c read.c parse.c parse2.c ft_usage.c draw_image.c hook.c print_int_tab.c strings.c create_sprites.c adress_sprites.c put_sprites.c destroy_sprites.c wolf.c
 
+SRCSL = main.c read.c parse.c parse2.c ft_usage.c draw_image.c hook_linux.c print_int_tab.c strings.c create_sprites.c adress_sprites.c put_sprites.c destroy_sprites.c wolf.c
+
 OBJ = main.o read.o parse.o parse2.o ft_usage.o draw_image.o hook.o print_int_tab.o strings.o create_sprites.o adress_sprites.o put_sprites.o destroy_sprites.o wolf.o
+
+OBJL = main.o read.o parse.o parse2.o ft_usage.o draw_image.o hook_linux.o print_int_tab.o strings.o create_sprites.o adress_sprites.o put_sprites.o destroy_sprites.o wolf.o
 
 INCLUDES = -I ./
 
@@ -74,11 +78,11 @@ linux:
 	@clear
 	@echo "\033[38;5;33m===Wolf : Compilation for Linux...\033[0m"
 	@echo "\033[38;5;33m[======                        ]\033[0m"
-	@gcc -c $(SRCS) $(INCLUDES)
+	@gcc -c $(SRCSL) $(INCLUDES)
 	@clear
 	@echo "\033[38;5;33m===Wolf : Compilation for Linux...\033[0m"
 	@echo "\033[38;5;33m[============                  ]\033[0m"
-	@gcc $(OBJ) $(COMPIL) $(LIB) $(INCLUDES) -o $(NAME)
+	@gcc $(OBJL) $(COMPIL) $(LIB) $(INCLUDES) -o $(NAME)
 	@clear
 	@echo "\033[38;5;33m===Wolf : Compilation for Linux...\033[0m"
 	@echo "\033[38;5;33m[==================            ]\033[0m"
@@ -87,7 +91,7 @@ linux:
 	@clear
 	@echo "\033[38;5;33m===Wolf : Compilation for Linux...\033[0m"
 	@echo "\033[38;5;33m[========================      ]\033[0m"
-	@mv $(OBJ) TMP
+	@mv $(OBJL) TMP
 	@clear
 	@echo "\033[38;5;33m===Wolf : Compilation for Linux...\033[0m"
 	@echo "\033[38;5;33m[==============================]\033[0m"
