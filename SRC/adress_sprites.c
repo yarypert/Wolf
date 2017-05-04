@@ -6,7 +6,7 @@
 /*   By: yarypert <yarypert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 16:25:19 by yarypert          #+#    #+#             */
-/*   Updated: 2017/05/04 16:43:09 by yarypert         ###   ########.fr       */
+/*   Updated: 2017/05/04 19:38:55 by yarypert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	set_adress(t_ptr *ptr)
 {
 	ptr->bts = mlx_get_data_addr(ptr->img, &(ptr->bpp), &(ptr->size_line),
 			&(ptr->endian));
+	ptr->sprt.logoad = mlx_get_data_addr(ptr->sprt.logo, &ptr->bpp,
+			&ptr->size_line, &ptr->endian);
 	ptr->sprt.menuad = mlx_get_data_addr(ptr->sprt.menu, &ptr->bpp,
 			&ptr->size_line, &ptr->endian);
 	ptr->sprt.akwepad = mlx_get_data_addr(ptr->sprt.akwep, &ptr->bpp,

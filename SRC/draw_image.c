@@ -6,7 +6,7 @@
 /*   By: yarypert <yarypert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/18 07:45:41 by yarypert          #+#    #+#             */
-/*   Updated: 2017/05/04 17:58:34 by yarypert         ###   ########.fr       */
+/*   Updated: 2017/05/04 20:07:14 by yarypert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	draw_image(t_ptr ptr)
 	mlx_hook(ptr.win, 4, 0, mouse, &ptr);
 	mlx_hook(ptr.win, 5, 0, mouse2, &ptr);
 	mlx_loop_hook(ptr.mlx, burst, &ptr);
+//	logo(&ptr);
 	init_wolf(&ptr);
 	put_images(&ptr);
 	put_guns(&ptr);
@@ -78,4 +79,17 @@ void	line_init(t_init *i, t_ptr ptr)
 	i->dy = abs(ptr.y2 - ptr.y1);
 	i->sy = ptr.y1 < ptr.y2 ? 1 : -1;
 	i->err = (i->dx > i->dy ? i->dx : -i->dy) / 2;
+}
+
+void	logo(t_ptr *ptr)
+{
+	int i;
+	i = -100;
+	while (i < 0)
+	{
+	mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->sprt.logo, 0 , i);
+	mlx_do_sync(ptr->mlx);
+	
+	i++;
+	}
 }

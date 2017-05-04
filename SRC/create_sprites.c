@@ -6,7 +6,7 @@
 /*   By: yarypert <yarypert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 16:25:19 by yarypert          #+#    #+#             */
-/*   Updated: 2017/05/04 16:56:57 by yarypert         ###   ########.fr       */
+/*   Updated: 2017/05/04 19:44:01 by yarypert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 void	create_images(t_ptr *ptr)
 {
 	ptr->img = mlx_new_image(ptr->mlx, SIZE_X, SIZE_Y);
+	ptr->sprt.logo = mlx_xpm_file_to_image(ptr->mlx,
+	"./Resources/Sprites/XPM/logo.xpm", &ptr->sprt.sizex, &ptr->sprt.sizey);
 	ptr->sprt.menu = mlx_xpm_file_to_image(ptr->mlx,
 	"./Resources/Sprites/XPM/menu.xpm", &ptr->sprt.sizex, &ptr->sprt.sizey);
 	ptr->sprt.dewep = mlx_xpm_file_to_image(ptr->mlx,

@@ -6,7 +6,7 @@
 /*   By: yarypert <yarypert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/20 15:23:48 by yarypert          #+#    #+#             */
-/*   Updated: 2017/05/04 17:47:03 by yarypert         ###   ########.fr       */
+/*   Updated: 2017/05/04 20:05:02 by yarypert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ int		reload(int keycode, t_ptr *ptr)
 	return (0);
 }
 
-
 int		move(int keycode, t_ptr *ptr)
 {
 	ptr->cst = 0.1;
@@ -81,7 +80,7 @@ int		move(int keycode, t_ptr *ptr)
 	return (0);
 }
 
-int move2(int keycode, t_ptr *ptr)
+int		move2(int keycode, t_ptr *ptr)
 {
 	if (keycode == 1)
 	{
@@ -108,106 +107,8 @@ int move2(int keycode, t_ptr *ptr)
 	return (0);
 }
 
-
 int		exit_cross(void)
 {
 	exit(0);
-	return (0);
-}
-
-int		mouse(int keycode, int x, int y, t_ptr *ptr)
-{
-	if (ptr->weapon_id == 0)
-	{
-		if (keycode == 1 && ptr->ak_mag != 0)
-		{
-			tricks(1);
-			system("afplay Resources/SFX/AK47_Shot_SFX.mp3 &");
-			ptr->ak_mag--;
-			refreshfire(ptr);
-			mlx_do_sync(ptr->mlx);
-			refresh(ptr);
-		}
-		else if (keycode == 1 && ptr->ak_mag == 0)
-		{
-			tricks(0);
-			system("afplay Resources/SFX/AK47_Empty_SFX.mp3 &");
-			usleep(100000);
-		}
-	}
-	else if (ptr->weapon_id == 1)
-	{
-		if (keycode == 1 && ptr->de_mag != 0)
-		{
-			system("afplay Resources/SFX/DesertEagle_Shot_SFX.mp3 &");
-			ptr->de_mag--;
-			refreshfire(ptr);
-			mlx_do_sync(ptr->mlx);
-			usleep(100000);
-			refresh(ptr);
-		}
-		else if (keycode == 1 && ptr->de_mag == 0)
-		{
-			system("afplay Resources/SFX/DesertEagle_Empty_SFX.mp3 &");
-			usleep(100000);
-		}
-	}
-	return (0);
-}
-
-int		tricks(int i)
-{
-	static int		onfire;
-
-	if (i == 1 && onfire != 1)
-		onfire = 1;
-	else if (i == 0 && onfire != 0)
-		onfire = 0;
-	return (onfire);
-}
-
-int		burst(t_ptr *ptr)
-{
-	if (tricks(-1) && ptr->ak_mag > 0)
-	{
-		system("afplay Resources/SFX/AK47_Shot_SFX.mp3 &");
-		ptr->ak_mag--;
-		refreshfire(ptr);
-		mlx_do_sync(ptr->mlx);
-		refresh(ptr);
-		mlx_do_sync(ptr->mlx);
-	}
-	return (0);
-}
-
-int		mouse2(int keycode, int x, int y, t_ptr *ptr)
-{
-	tricks(0);
-	return (0);
-}
-
-int		refresh(t_ptr *ptr)
-{
-	mlx_clear_window(ptr->mlx, ptr->win);
-	destroy_images(ptr);
-	create_images(ptr);
-	set_adress(ptr);
-	init_wolf(ptr);
-	put_images(ptr);
-	put_guns(ptr);
-	weapons_info(ptr);
-	return (0);
-}
-
-int		refreshfire(t_ptr *ptr)
-{
-	mlx_clear_window(ptr->mlx, ptr->win);
-	destroy_images(ptr);
-	create_images(ptr);
-	set_adress(ptr);
-	init_wolf(ptr);
-	put_images(ptr);
-	put_guns_fire(ptr);
-	weapons_info(ptr);
 	return (0);
 }

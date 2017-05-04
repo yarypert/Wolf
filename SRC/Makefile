@@ -4,9 +4,9 @@ COMPIL = -L/home/sholyu/Bureau/42/07-Wolf3D/minilibx -lm -lmlx -lXext -lX11
 
 COMPILM = gcc -lmlx -framework OpenGL -framework AppKit
 
-SRCS = main.c read.c parse.c parse2.c parse3.c ft_usage.c draw_image.c hook.c print_int_tab.c strings.c create_sprites.c adress_sprites.c put_sprites.c destroy_sprites.c wolf.c
+SRCS = main.c read.c parse.c parse2.c parse3.c ft_usage.c draw_image.c hook.c hook2.c hook3.c print_int_tab.c strings.c create_sprites.c adress_sprites.c put_sprites.c destroy_sprites.c wolf.c wolf2.c
 
-OBJ = main.o read.o parse.o parse2.o parse3.o ft_usage.o draw_image.o hook.o print_int_tab.o strings.o create_sprites.o adress_sprites.o put_sprites.o destroy_sprites.o wolf.o
+OBJ = main.o read.o parse.o parse2.o parse3.o ft_usage.o draw_image.o hook.o hook2.o hook3.o print_int_tab.o strings.o create_sprites.o adress_sprites.o put_sprites.o destroy_sprites.o wolf.o wolf2.o
 
 INCLUDES = -I ./
 

@@ -6,7 +6,7 @@
 /*   By: yarypert <yarypert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 21:16:45 by yarypert          #+#    #+#             */
-/*   Updated: 2017/05/04 18:15:58 by yarypert         ###   ########.fr       */
+/*   Updated: 2017/05/04 19:42:49 by yarypert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ typedef	struct	s_sprt
 	char		*akbulad;
 	void		*debul;
 	char		*debulad;
+	void		*logo;
+	char		*logoad;
 }				t_sprt;
 
 typedef struct	s_ptr
@@ -154,15 +156,18 @@ void			print_int_tab(t_ptr *ptr);
 int				refresh(t_ptr *ptr);
 int				mouse(int keycode, int x, int y, t_ptr *ptr);
 int				mouse2(int keycode, int x, int y, t_ptr *ptr);
+int				mouse3(int keycode, t_ptr *ptr);
 void			weapons_info(t_ptr *ptr);
 void			init_wolf(t_ptr *ptr);
 void			init_wolf2(t_ptr *ptr);
 void			init_wolf3(t_ptr *ptr);
 void			init_wolf4(t_ptr *ptr);
 void			init_wolf5(t_ptr *ptr);
+void			init_wolf6(t_ptr *ptr);
 int				move(int keycode, t_ptr *ptr);
 int				move2(int keycode, t_ptr *ptr);
 int				reload(int keycode, t_ptr *ptr);
+void			logo(t_ptr *ptr);
 
 void			ak_bullet(t_ptr *ptr);
 int				tricks(int i);
